@@ -169,3 +169,4 @@ input/*
 # Example files (feel free to delete)
 !input/example1/
 !input/example2/
+!input/example3/
