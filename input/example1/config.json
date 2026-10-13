@@ -1,5 +1,6 @@
 {
     "parameters": {
+        "mouldType": "onePart",
         "projectName": "Demo: One-part Moulds",
         "projectId": "OPM",
         "serialNumber": "0001"
