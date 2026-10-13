@@ -11,6 +11,8 @@ export const internalWorkspaceDir = join(internalDir, 'workspace')
 
 export const mouldCfgName = 'config.json'
 export const mouldSubjectName = 'model.stl'
+export const baseIndexName = 'base-index.js'
+export const baseIndexPath = join(srcDir, baseIndexName)
 
 export const isDirectory = fileName => {
     return fs.lstatSync(fileName).isDirectory();
@@ -21,7 +23,15 @@ export const removeAllFilesSync = directory => {
 
     for (const file of files) {
         const filePath = join(directory, file);
-        fs.unlinkSync(filePath);
+        // const stats = fs.statSync(filePath);
+        // console.log(stats.mode)
+        // fs.chmod(filePath, 0o200, (err) => {
+        //     if (err) throw err;
+        //     console.log(`The permissions for file "${filePath}" have been changed.`);
+        // });
+        // fs.chmodSync(filePath, 0o766)
+        // fs.unlinkSync(filePath);
+        fs.rmSync(filePath, { recursive: true, force: true });
     }
 }
 

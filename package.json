@@ -29,5 +29,8 @@
   "bugs": {
     "url": "hhttps://github.com/salvador-workshop/arca-moulds/issues"
   },
-  "homepage": "hhttps://github.com/salvador-workshop/arca-moulds"
+  "homepage": "hhttps://github.com/salvador-workshop/arca-moulds",
+  "dependencies": {
+    "swcad-js": "^0.14.5"
+  }
 }

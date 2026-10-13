@@ -10,6 +10,7 @@ import {
     isDirectory,
     mouldCfgName,
     mouldSubjectName,
+    baseIndexPath,
     clearInternalDir
 } from './utils.js'
 
@@ -46,7 +47,7 @@ console.log(directoryList)
 let projInputDir = null
 if (directoryList.includes(projId)) {
     detectedProject = true
-    projInputDir = join(inputDir, 'projId')
+    projInputDir = join(inputDir, projId)
 }
 
 console.log(`> Found project: ${projId}`)
@@ -65,6 +66,7 @@ if (detectedProject) {
     // set up internal directory
     const projInternalDir = internalWorkspaceDir
     try {
+        clearInternalDir()
         if (!fs.existsSync(projInternalDir)) {
             fs.mkdirSync(projInternalDir);
         }
@@ -74,27 +76,27 @@ if (detectedProject) {
 
     // copy data into internal dir
     try {
-        clearInternalDir()
-
         const cfgPath = join(projInputDir, mouldCfgName)
         const modelPath = join(projInputDir, mouldSubjectName)
+
         const cfgDestPath = join(projInternalDir, mouldCfgName)
         const modelDestPath = join(projInternalDir, mouldSubjectName)
+        const baseIndexDestPath = join(projInternalDir, 'index.js')
+
         fs.copyFileSync(cfgPath, cfgDestPath)
         fs.copyFileSync(modelPath, modelDestPath)
+        fs.copyFileSync(baseIndexPath, baseIndexDestPath)
     } catch (err) {
         console.error(err);
     }
 
     // run JSCAD
     // const cmdString = `npx jscad src/input/${projId}/ -o output/${projId}/${projId}.stl`
-    const cmdString = `npx jscad ${internalWorkspaceDir}/ -gp -o output/`
+    const cmdString = `npx jscad ${internalWorkspaceDir}/ -gp -o output/${projId}/${projId}-mould.stl`
     exec(cmdString, (err, stdout, stderr) => {
         if (err) {
-            console.error();
             console.error("Error:");
             console.error(err);
-            console.error();
         }
         console.log(stdout);
         console.error(stderr);
