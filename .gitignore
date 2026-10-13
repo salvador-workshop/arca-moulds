@@ -166,6 +166,9 @@ output/*
 input/*
 !input/.gitkeep
 
+# Temporary internal files
+internal
+
 # Example files (feel free to delete)
 !input/example1/
 !input/example2/
