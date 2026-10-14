@@ -13,7 +13,7 @@ const castingMould = castingMouldModule.init({ jscad, swcadJs })
 
 
 const castingSubject = require('./model.stl')
-const castMouldData1 = castingMould.flatOnePartMould({
+const castMouldData1 = castingMould.flatTwoPartMould({
     subject: castingSubject,
 })
 const castMould = castMouldData1[0]
