@@ -780,8 +780,10 @@ const castingMouldInit = ({ jscad, swcadJs }) => {
         blankMould = align({
             modes: ['center', 'center', 'min'],
         }, blankMould)
+        // HACK: using `relativeTo` to nudge the subject down to avoid certain issues.
         const alignedSubject = align({
             modes: ['center', 'center', 'min'],
+            // relativeTo: [0, 0, -0.2],
         }, subject)
 
         // Cutting impression into mould
