@@ -176,7 +176,6 @@ const castingMouldInit = ({ jscad, swcadJs }) => {
      */
     const castingMouldOpts = (opts) => {
         const defaults = castingMouldDefaults()
-        console.log('castingMouldOpts() -- opts', opts)
 
         // User options
         const {
@@ -201,7 +200,6 @@ const castingMouldInit = ({ jscad, swcadJs }) => {
             ...stdOpts,
         }
 
-        console.log('castingMouldOpts() -- initOpts', initOpts)
 
         return initOpts
     }
@@ -219,7 +217,6 @@ const castingMouldInit = ({ jscad, swcadJs }) => {
      */
     const castingMouldProps = (opts) => {
         const defaults = castingMouldDefaults()
-        console.log('castingMouldProps() -- opts', opts)
 
         const {
             subject,
@@ -381,7 +378,6 @@ const castingMouldInit = ({ jscad, swcadJs }) => {
             components: modelComponents,
         }
 
-        console.log('castingMouldProps() -- modelProperties', modelProperties)
 
         return modelProperties
     }
@@ -408,7 +404,6 @@ const castingMouldInit = ({ jscad, swcadJs }) => {
      * @returns geom3 stamp
      */
     const mouldTextLineStamp = (textLine, lineHeight) => {
-        console.log('mouldTextLineStamp() textLine', textLine)
         const lineStamp = engravedText({
             message: textLine,
             fontSize: lineHeight,
@@ -592,7 +587,6 @@ const castingMouldInit = ({ jscad, swcadJs }) => {
             interfaceMargin: interfaceThickness,
         })
         const connTabProfiles = connTabData[0]
-        console.log(connTabData[2])
 
         const connTabMale = extrudeLinear({ height: alignmentPinHeight }, connTabProfiles[0])
         const connTabFemale = extrudeLinear({ height: alignmentPinHeight - interfaceThickness }, connTabProfiles[1])

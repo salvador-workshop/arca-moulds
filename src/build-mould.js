@@ -42,8 +42,6 @@ const directoryList = directoryListLong.map(longDir => {
     const displayDir = relative(inputDir, longDir)
     return displayDir
 })
-console.log(directoryListLong)
-console.log(directoryList)
 
 let projInputDir = null
 if (directoryList.includes(projId)) {
@@ -59,7 +57,6 @@ if (detectedProject) {
     const modelPath = join(projInputDir, mouldSubjectName)
     const rawCfgData = fs.readFileSync(cfgPath);
     const cfgData = JSON.parse(rawCfgData)
-    console.log(cfgData)
     let mouldType = 'onePart'
     if (cfgData && cfgData.parameters?.mouldType) {
         mouldType = cfgData.parameters.mouldType
