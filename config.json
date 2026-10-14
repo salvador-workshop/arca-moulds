@@ -1,0 +1,10 @@
+{
+    "parameters": {
+        "interfaceThickness": 1.3333,
+        "baseplateThickness": 1.3333,
+        "projectName": "ARCA Moulds",
+        "projectId": "ARCA",
+        "serialNumber": "0001",
+        "organizationName": "Salvador Workshop"
+    }
+}

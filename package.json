@@ -1,22 +1,19 @@
 {
-  "name": "arca-foundry-js",
-  "version": "0.3.1-alpha.0",
-  "description": "Salvador Workshop's 3D components and designs, specified in Code-CAD",
+  "name": "arca-moulds",
+  "version": "0.3.1",
+  "description": "Salvador Workshop's 3D Code-CAD tools for generating casting mould designs",
   "workspaces": [
     "packages/*"
   ],
   "main": "src/index.js",
   "scripts": {
     "docs": "jsdoc packages -r -d docs -c jsdoc.json --readme readme.md",
-    "jscad": "node src/build-jscad.js",
-    "jscad-batch": "node src/build-jscad-batch.js",
-    "transform-opt": "node src/build-transform-opt.js",
     "moulds": "node src/build-moulds.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+hhttps://github.com/salvador-workshop/arca-foundry-js.git"
+    "url": "git+hhttps://github.com/salvador-workshop/arca-moulds.git"
   },
   "devDependencies": {
     "@jscad/cli": "^2.3.8",
@@ -30,7 +27,10 @@
   "author": "RJ Salvador (Salvador Workshop)",
   "license": "ISC",
   "bugs": {
-    "url": "hhttps://github.com/salvador-workshop/arca-foundry-js/issues"
+    "url": "hhttps://github.com/salvador-workshop/arca-moulds/issues"
   },
-  "homepage": "hhttps://github.com/salvador-workshop/arca-foundry-js"
+  "homepage": "hhttps://github.com/salvador-workshop/arca-moulds",
+  "dependencies": {
+    "swcad-js": "^0.14.5"
+  }
 }
