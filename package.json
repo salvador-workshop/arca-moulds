@@ -1,6 +1,6 @@
 {
   "name": "arca-moulds",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Salvador Workshop's 3D Code-CAD tools for generating casting mould designs",
   "workspaces": [
     "packages/*"
