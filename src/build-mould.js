@@ -10,7 +10,8 @@ import {
     isDirectory,
     mouldCfgName,
     mouldSubjectName,
-    baseIndexPath,
+    baseIndexPathOnePart,
+    baseIndexPathTwoPart,
     clearInternalDir
 } from './utils.js'
 
@@ -41,8 +42,6 @@ const directoryList = directoryListLong.map(longDir => {
     const displayDir = relative(inputDir, longDir)
     return displayDir
 })
-console.log(directoryListLong)
-console.log(directoryList)
 
 let projInputDir = null
 if (directoryList.includes(projId)) {
@@ -53,6 +52,16 @@ if (directoryList.includes(projId)) {
 console.log(`> Found project: ${projId}`)
 
 if (detectedProject) {
+    // read project data
+    const cfgPath = join(projInputDir, mouldCfgName)
+    const modelPath = join(projInputDir, mouldSubjectName)
+    const rawCfgData = fs.readFileSync(cfgPath);
+    const cfgData = JSON.parse(rawCfgData)
+    let mouldType = 'onePart'
+    if (cfgData && cfgData.parameters?.mouldType) {
+        mouldType = cfgData.parameters.mouldType
+    }
+
     // set up output directory
     const projOutputDir = join(outputDir, projId)
     try {
@@ -76,16 +85,19 @@ if (detectedProject) {
 
     // copy data into internal dir
     try {
-        const cfgPath = join(projInputDir, mouldCfgName)
-        const modelPath = join(projInputDir, mouldSubjectName)
-
         const cfgDestPath = join(projInternalDir, mouldCfgName)
         const modelDestPath = join(projInternalDir, mouldSubjectName)
         const baseIndexDestPath = join(projInternalDir, 'index.js')
 
         fs.copyFileSync(cfgPath, cfgDestPath)
         fs.copyFileSync(modelPath, modelDestPath)
-        fs.copyFileSync(baseIndexPath, baseIndexDestPath)
+
+        if (mouldType == 'twoPart') {
+            fs.copyFileSync(baseIndexPathTwoPart, baseIndexDestPath)
+        } else {
+            // default to one-part moulds
+            fs.copyFileSync(baseIndexPathOnePart, baseIndexDestPath)
+        }
     } catch (err) {
         console.error(err);
     }

@@ -11,8 +11,11 @@ export const internalWorkspaceDir = join(internalDir, 'workspace')
 
 export const mouldCfgName = 'config.json'
 export const mouldSubjectName = 'model.stl'
-export const baseIndexName = 'base-index.js'
-export const baseIndexPath = join(srcDir, baseIndexName)
+export const baseIndexNameOnePart = 'base-index-one-part.js'
+export const baseIndexNameTwoPart = 'base-index-two-part.js'
+
+export const baseIndexPathOnePart = join(srcDir, baseIndexNameOnePart)
+export const baseIndexPathTwoPart = join(srcDir, baseIndexNameTwoPart)
 
 export const isDirectory = fileName => {
     return fs.lstatSync(fileName).isDirectory();
