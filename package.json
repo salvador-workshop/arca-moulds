@@ -8,7 +8,7 @@
   "main": "src/index.js",
   "scripts": {
     "docs": "jsdoc packages -r -d docs -c jsdoc.json --readme readme.md",
-    "moulds": "node src/build-moulds.js",
+    "mould": "node src/build-mould.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

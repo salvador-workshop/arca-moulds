@@ -10,7 +10,7 @@ import {
     isDirectory,
     mouldCfgName,
     mouldSubjectName,
-    baseIndexPath,
+    baseIndexPathOnePart,
     clearInternalDir
 } from './utils.js'
 
@@ -85,7 +85,7 @@ if (detectedProject) {
 
         fs.copyFileSync(cfgPath, cfgDestPath)
         fs.copyFileSync(modelPath, modelDestPath)
-        fs.copyFileSync(baseIndexPath, baseIndexDestPath)
+        fs.copyFileSync(baseIndexPathOnePart, baseIndexDestPath)
     } catch (err) {
         console.error(err);
     }
