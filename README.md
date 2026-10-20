@@ -1,6 +1,6 @@
 # arca-moulds
 
-Salvador Workshop's 3D [Code-CAD](https://github.com/Irev-Dev/curated-code-cad) tools for generating casting mould designs.
+SW's [Code-CAD](https://github.com/Irev-Dev/curated-code-cad) tools for generating moulds around 2D (`SVG`) diagrams and 3D (`STL`) models.
 
 ## Usage
 
